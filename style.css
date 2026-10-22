@@ -1,7 +1,353 @@
 @font-face {
-  font-family: "Univers";
-  src: url("../../font/UniversLTStd-Cn.OTF") format("opentype");
-  src: url("../../font/UniversLTStd-Cn.woff2") format("woff2");
-  font-weight: normal;
-  font-style: condensed;
+  font-family: "Univers Condensed";
+  src: url("font/UniversLTStd-CnObl.woff2") format("woff2"),
+       url("font/UniversLTStd-CnObl.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Univers Condensed";
+  src: url("font/UniversLTStd-BoldCnObl.woff2") format("woff2"),
+       url("font/UniversLTStd-BoldCnObl.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Didot Web";
+  src: url("font/Didot-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Univers Condensed Upright";
+  src: url("font/UniversLTStd-Cn.woff2") format("woff2"),
+       url("font/UniversLTStd-Cn.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink-red: #bc0a2a;
+  --text: #000000;
+  --rule: #c9c9c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Univers Condensed", "Arial Narrow", sans-serif;
+  font-style: italic;
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+}
+
+.page {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 2.5rem;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.social {
+  display: block;
+  flex: none;
+  width: 2.125rem;
+  color: var(--text);
+}
+
+.social svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+.social:hover {
+  color: var(--ink-red);
+}
+
+.social:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 4px;
+}
+
+.logo {
+  --logo-gap: 0.23em;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo-poison {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.logo-ink {
+  font-family: "Didot Web", Didot, "Bodoni 72", "Bodoni MT", serif;
+  margin-left: var(--logo-gap);
+  font-style: italic;
+  font-weight: 700;
+  font-synthesis: weight;
+  color: var(--ink-red);
+  -webkit-text-stroke: 0.016em var(--ink-red);
+  stroke-linejoin: round;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--rule);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+nav a.current,
+nav a:hover {
+  color: var(--ink-red);
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 4px;
+}
+
+.rule {
+  flex: 1 1 2rem;
+  height: 1px;
+  margin-left: 1.5rem;
+  background: var(--rule);
+}
+
+:root {
+  --tagline-size: 1.75rem;
+  --warning-size: 1.25rem;
+}
+
+.intro {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: var(--tagline-size);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.warning {
+  margin-top: 2.5rem;
+  font-size: var(--warning-size);
+  line-height: 1.3;
+}
+
+.warning p {
+  margin: 0;
+  text-wrap: balance;
+}
+
+.warning p + p {
+  margin-top: 0.75rem;
+}
+
+.about {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+hr {
+  height: 1px;
+  margin: 0 0 2.5rem;
+  border: 0;
+  background: var(--rule);
+}
+
+.about p {
+  margin: 0;
+  font-size: var(--warning-size);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+footer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+footer hr {
+  margin-bottom: 1rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+footer .credit {
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--ink-red);
+}
+
+footer a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .logo {
+    font-size: 2.75rem;
+  }
+
+  .social {
+    width: 1.7rem;
+  }
+
+  nav a {
+    padding: 0 0.9rem;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  :root {
+    --tagline-size: 1.5rem;
+    --warning-size: 1.1rem;
+  }
+
+  .intro {
+    margin-top: 3rem;
+  }
+}
+
+.hosts {
+  margin-top: 2.5rem;
+}
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.host + .host {
+  margin-top: 3rem;
+}
+
+.host img {
+  display: block;
+  flex: none;
+  width: 9rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.host-text h2 {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.host-text p {
+  margin: 0;
+  font-family: "Univers Condensed Upright", "Arial Narrow", sans-serif;
+  font-style: normal;
+  font-size: var(--warning-size);
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+
+.host-text a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.host-text a:hover {
+  color: var(--ink-red);
+}
+
+.host-text a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 2px;
+}
+
+.credits {
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.credits p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .host {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .host img {
+    width: 8rem;
+  }
+
+  .host-text h2 {
+    font-size: 1.5rem;
+  }
+}
+
+main:has(.credits) + footer {
+  margin-top: 1rem;
 }
