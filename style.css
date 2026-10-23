@@ -351,3 +351,17 @@ footer a:focus-visible {
 main:has(.credits) + footer {
   margin-top: 1rem;
 }
+
+h1 a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+h1 a:hover {
+  color: var(--ink-red);
+}
+
+h1 a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 2px;
+}
