@@ -36,14 +36,26 @@
 <a href="about.html">About</a>
 <a href="listen.html">Listen</a>
 <a class="current" href="contact.html">Contact</a>
-<a href="https://www.patreon.com/XXXX">Patreon</a>
+<a href="https://www.patreon.com/c/PoisonInk">Patreon</a>
 <span class="rule" aria-hidden="true"></span>
 </nav>
 </header>
 <main>
 <section class="intro">
-<h1>Email us at <a href="mailto:poisoninkpodcast@gmail.com">poisoninkpodcast@gmail.com</a>.</h1>
+<h1 class="note">Email us at <a href="mailto:poisoninkpodcast@gmail.com">poisoninkpodcast@gmail.com</a>, or use this:</h1>
 </section>
+<form class="contact-form" action="https://splitforms.com/api/submit" method="POST">
+<input type="hidden" name="access_key" value="00edc0ad26114f938bbe92bc8e43d149">
+<label for="sf-name">Name</label>
+<input type="text" id="sf-name" name="name" autocomplete="name" required>
+<label for="sf-email">Email</label>
+<input type="email" id="sf-email" name="email" autocomplete="email" required>
+<label for="sf-message">Message</label>
+<textarea id="sf-message" name="message" rows="8" required></textarea>
+<input class="botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+<button type="submit">Send Message</button>
+</form>
+<script src="https://splitforms.com/embed.js" async></script>
 </main>
 <footer>
 <hr>

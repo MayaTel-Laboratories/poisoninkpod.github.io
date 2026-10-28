@@ -33,6 +33,24 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Espy Sans";
+  src: url("font/EspySansRevivedTen-Regular.woff2") format("woff2"),
+       url("font/EspySansRevivedTen-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Espy Sans";
+  src: url("font/EspySansRevivedTen-Bold.woff2") format("woff2"),
+       url("font/EspySansRevivedTen-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink-red: #bc0a2a;
   --text: #000000;
@@ -292,6 +310,9 @@ footer a:focus-visible {
 }
 
 .host-text h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
   margin: 0 0 0.75rem;
   font-weight: 700;
   font-size: 1.75rem;
@@ -332,6 +353,30 @@ footer a:focus-visible {
   line-height: 1.4;
 }
 
+.credits a {
+  display: inline-block;
+  width: 0.85rem;
+  margin-left: 0.4rem;
+  vertical-align: -0.1em;
+  color: var(--text);
+}
+
+.credits svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+.credits a:hover {
+  color: var(--ink-red);
+}
+
+.credits a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 2px;
+}
+
 @media (max-width: 700px) {
   .host {
     flex-direction: column;
@@ -364,4 +409,337 @@ h1 a:hover {
 h1 a:focus-visible {
   outline: 2px solid var(--ink-red);
   outline-offset: 2px;
+}
+
+.host-text .bsky {
+  display: block;
+  flex: none;
+  width: 1.4rem;
+  color: var(--text);
+}
+
+.host-text .bsky svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+.host-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.host-links a {
+  display: block;
+  height: 1.75rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.host-links svg {
+  display: block;
+  width: auto;
+  height: 100%;
+  fill: currentColor;
+}
+
+.host-text .bsky:hover,
+.host-links a:hover {
+  color: var(--ink-red);
+}
+
+.host-text .bsky:focus-visible,
+.host-links a:focus-visible {
+  outline: 2px solid var(--ink-red);
+  outline-offset: 4px;
+}
+
+h1.note {
+  font-size: var(--warning-size);
+  line-height: 1.3;
+}
+
+.contact-form {
+  max-width: 36rem;
+  margin: 1.5rem auto 0;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--text);
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.contact-form textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  border-color: var(--ink-red);
+  outline: 2px solid var(--ink-red);
+  outline-offset: 2px;
+}
+
+.contact-form button {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--ink-red);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: var(--text);
+}
+
+.contact-form button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.contact-form .botcheck {
+  display: none;
+}
+
+.listen {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.listen h2 {
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.listen p {
+  margin: 0;
+  font-size: var(--warning-size);
+  line-height: 1.3;
+}
+
+.listen iframe {
+  display: block;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  border: 0;
+}
+
+.split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.split h1 {
+  flex: 1 1 auto;
+  max-width: 32rem;
+}
+
+.ipod-photo {
+  position: relative;
+  flex: none;
+  width: 24em;
+  height: 21.68em;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.split + .listen {
+  margin-top: 0;
+}
+
+.ipod-stage {
+  position: relative;
+}
+
+.ipod-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ipod-display {
+  position: absolute;
+  top: 8.09%;
+  left: 23.04%;
+  width: 55.65%;
+  height: 21.66%;
+  border-radius: 0.35em;
+  background: #d1e4f2;
+  box-shadow: 0 0 0.5em 0.12em rgba(209, 228, 242, 0.85);
+  color: #2b2fa0;
+  font-weight: 700;
+  font-family: "Espy Sans", Geneva, "Lucida Grande", Verdana, sans-serif;
+  font-style: normal;
+  font-size: 1em;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.ipod-display > * {
+  position: absolute;
+}
+
+.ipod-bar {
+  top: 5%;
+  right: 7%;
+  left: 7%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 15%;
+  border-bottom: 0.1em solid currentColor;
+}
+
+.ipod-title {
+  font-size: 0.9em;
+}
+
+.ipod-play {
+  font-size: 0.75em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.4em 0 0.4em 0.7em;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.ipod-battery {
+  font-size: 0.75em;
+  position: relative;
+  justify-self: end;
+  width: 2.1em;
+  height: 1em;
+  padding: 0.15em;
+  border: 0.12em solid currentColor;
+  border-radius: 0.15em;
+  background-color: currentColor;
+  background-clip: content-box;
+}
+
+.ipod-battery::after {
+  content: "";
+  position: absolute;
+  top: 0.2em;
+  right: -0.4em;
+  width: 0.2em;
+  height: 0.4em;
+  background: currentColor;
+}
+
+.ipod-shuffle {
+  display: block;
+  width: 1.4em;
+  height: 0.84em;
+}
+
+.ipod-count {
+  top: 23%;
+  font-size: 0.75em;
+  right: 9%;
+  left: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ipod-track,
+.ipod-artist {
+  right: 9%;
+  left: 9%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.ipod-track span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.ipod-track {
+  top: 37%;
+}
+
+.ipod-artist {
+  top: 50%;
+}
+
+.ipod-progress {
+  top: 76%;
+  right: 9%;
+  left: 9%;
+  height: 6.5%;
+  border: 0.1em solid currentColor;
+  border-radius: 0.4em;
+  overflow: hidden;
+}
+
+.ipod-progress span {
+  display: block;
+  width: 35%;
+  height: 100%;
+  border-radius: 0.2em;
+  background: currentColor;
+}
+
+.ipod-times {
+  top: 84%;
+  font-size: 0.75em;
+  right: 9%;
+  left: 9%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 700px) {
+  .split {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .ipod-photo {
+    font-size: 0.62rem;
+  }
 }
