@@ -1,0 +1,41 @@
+name: Update latest episode
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch feed
+        env:
+          FEED_URL: "https://www.patreon.com/rss/PoisonInk?auth=DnywXcJaPvh5uBrhYpRHtL-eQGRVlWdG&show=2461932"
+        run: |
+          python3 - <<'EOF'
+          import os, json, urllib.request
+          import xml.etree.ElementTree as ET
+          req = urllib.request.Request(os.environ["FEED_URL"], headers={"User-Agent": "Mozilla/5.0 (compatible; PoisonInkSite/1.0)"})
+          data = urllib.request.urlopen(req, timeout=30).read()
+          items = ET.fromstring(data).findall("./channel/item")
+          ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+          first = items[0]
+          out = {
+              "title": (first.findtext("title") or "").strip(),
+              "duration": (first.findtext("itunes:duration", namespaces=ns) or "").strip(),
+              "count": len(items),
+          }
+          with open("feed.json", "w") as f:
+              json.dump(out, f, ensure_ascii=False)
+          EOF
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.json
+          git diff --cached --quiet || (git commit -m "Update latest episode" && git push)

@@ -85,24 +85,21 @@
 
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(marquee);
 
-  if (feed && window.fetch && window.DOMParser) {
+  if (feed && window.fetch) {
     fetch(feed)
-      .then(function (r) { return r.text(); })
-      .then(function (text) {
-        var doc = new DOMParser().parseFromString(text, "text/xml");
-        var items = doc.getElementsByTagName("item");
-        if (!items.length) return;
-        var item = items[0];
-        var t = item.getElementsByTagName("title")[0];
-        var d = item.getElementsByTagName("itunes:duration")[0];
-        if (t && t.textContent) {
-          track.textContent = t.textContent.replace(/^\s+|\s+$/g, "");
-          img.alt = "A green iPod mini playing " + track.textContent + " from Poison Ink";
+      .then(function (r) {
+        if (!r.ok) throw new Error("feed");
+        return r.json();
+      })
+      .then(function (data) {
+        if (data.title) {
+          track.textContent = data.title;
+          img.alt = "A green iPod mini playing " + data.title + " from Poison Ink";
         }
-        var secs = d ? parseDuration(d.textContent) : 0;
+        var secs = data.duration ? parseDuration(String(data.duration)) : 0;
         if (secs > 0) total = secs;
         elapsed = 0;
-        count.textContent = "1 of " + items.length;
+        if (data.count) count.textContent = "1 of " + data.count;
         draw();
         marquee();
       })
