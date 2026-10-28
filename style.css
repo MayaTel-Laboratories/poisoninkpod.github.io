@@ -555,6 +555,13 @@ h1.note {
   line-height: 1.3;
 }
 
+.listen h2 img {
+  display: block;
+  width: auto;
+  height: 2.75rem;
+  margin: 0 auto;
+}
+
 .listen iframe {
   display: block;
   width: 100%;
